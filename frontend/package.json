@@ -13,4 +13,3 @@
     "start": "vite",
     "build": "vite build"
   }
-}
