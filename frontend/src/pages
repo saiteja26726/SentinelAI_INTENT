@@ -1,0 +1,33 @@
+
+import React from "react";
+import TriggerButton from "../components/TriggerButton";
+
+const Home = () => {
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <TriggerButton />
+    </div>
+  );
+};
+
+export default Home;
+[10:25 pm, 29/4/2026] Helper: src/pages/Dashboard.jsx
+
+import React from "react";
+import useFetchData from "../hooks/useFetchData";
+
+const Dashboard = () => {
+  const { data, loading } = useFetchData("/data/123");
+
+  if (loading) return <p>Loading...</p>;
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
+};
+
+export default Dashboard;

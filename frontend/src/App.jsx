@@ -1,30 +1,16 @@
-import { useState } from "react";
-import { callLLM } from "./services/api";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
-
-  const handleSubmit = async () => {
-    const res = await callLLM(input);
-    setOutput(res.response);
-  };
-
   return (
-    <div style={{ padding: 20 }}>
-      <h1>LLM App</h1>
-      <textarea
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        rows={4}
-        cols={50}
-      />
-      <br />
-      <button onClick={handleSubmit}>Generate</button>
-
-      <h3>Response:</h3>
-      <p>{output}</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
