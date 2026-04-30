@@ -17,6 +17,6 @@ export const triggerOutbound = async (payload) => {
 
 // Fetch Data (no Redis score)
 export const fetchData = async (id) => {
-  const res = await api.get(/data/${id});
+  const res = await api.get('/data/${id}');
   return res.data;
 };
